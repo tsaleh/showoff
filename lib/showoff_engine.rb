@@ -1,18 +1,18 @@
 module ShowOffEngine
   module Helpers
-    def load_section_files(section)
-      section = File.join(options.pres_dir, section)
+    def load_section_files(section, dir)
+      section = File.join(dir, section)
       files = Dir.glob("#{section}/**/*").sort
       pp files
       files
     end
 
-    def css_files
-      Dir.glob("#{options.pres_dir}/*.css").map { |path| File.basename(path) }
+    def css_files(dir)
+      Dir.glob("#{dir}/*.css").map { |path| File.basename(path) }
     end
 
-    def js_files
-      Dir.glob("#{options.pres_dir}/*.js").map { |path| File.basename(path) }
+    def js_files(dir)
+      Dir.glob("#{dir}/*.js").map { |path| File.basename(path) }
     end
 
     def process_markdown(name, content)

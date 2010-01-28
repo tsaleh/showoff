@@ -33,7 +33,7 @@ class ShowOff < Sinatra::Application
   helpers ShowOffEngine::Helpers
 
   get '/' do
-    erb :index
+    erb :index, :pres_dir => options.pres_dir
   end
 
   get %r{(?:image|file)/(.*)} do
@@ -49,7 +49,7 @@ class ShowOff < Sinatra::Application
       order = JSON.parse(File.read(index))
       order = order.map { |s| s['section'] }
       order.each do |section|
-        files << load_section_files(section)
+        files << load_section_files(section, options.pres_dir)
 
       end
       files = files.flatten

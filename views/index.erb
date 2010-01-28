@@ -21,11 +21,11 @@
   <link type="text/css" href="/css/theme/ui.all.css" media="screen" rel="stylesheet" /> 
   <link type="text/css" href="/css/sh_style.css" rel="stylesheet" >
 
-  <% css_files.each do |css_file| %>
+  <% css_files(options[:pres_dir]).each do |css_file| %>
 	  <link rel="stylesheet" href="file/<%= css_file %>" type="text/css"/>
   <% end %>
 
-  <% js_files.each do |js_file| %>
+  <% js_files(options[:pres_dir]).each do |js_file| %>
     <script type="text/javascript" src="/file/<%= js_file %>"></script>
   <% end %>
 
